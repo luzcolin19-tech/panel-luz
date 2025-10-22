@@ -1,16 +1,13 @@
 {
   "name": "node-red-dashboard",
   "version": "1.0.0",
-  "description": "Node-RED dashboard desplegado en Render",
-  "main": "server.js",
+  "description": "Node-RED dashboard en Render",
+  "main": "node_modules/node-red/red.js",
   "scripts": {
     "start": "node node_modules/node-red/red.js --settings ./settings.js"
   },
   "dependencies": {
-    "node-red": "^3.1.1",
-    "node-red-dashboard": "^3.1.0"
-  },
-  "engines": {
-    "node": "20.x"
+    "node-red": "^3.1.0",
+    "node-red-dashboard": "^3.6.0"
   }
 }
