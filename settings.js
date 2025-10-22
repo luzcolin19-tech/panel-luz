@@ -1,13 +1,10 @@
 const bcrypt = require('bcryptjs');
 
 module.exports = {
-    // Dashboard en la raíz
-    ui: {
-        path: "/"
-    },
-
-    // Puerto asignado por Render
-    uiPort: process.env.PORT || 1880,
+  uiPort: process.env.PORT || 1880,
+  uiHost: "0.0.0.0",
+  httpStatic: 'public',
+}
 
     // Editor protegido en /admin
     httpAdminRoot: "/admin",
