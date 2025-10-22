@@ -1,0 +1,174 @@
+[
+  {
+    "id": "a1b2c3d4e5f6",
+    "type": "tab",
+    "label": "Dashboard Principal",
+    "disabled": false,
+    "info": "Flujo de ejemplo para Render - Node-RED en espa\u00f1ol"
+  },
+  {
+    "id": "inject1",
+    "type": "inject",
+    "z": "a1b2c3d4e5f6",
+    "name": "Generar dato cada segundo",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "1",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payloadType": "num",
+    "x": 180,
+    "y": 140,
+    "wires": [
+      [
+        "function1"
+      ]
+    ]
+  },
+  {
+    "id": "function1",
+    "type": "function",
+    "z": "a1b2c3d4e5f6",
+    "name": "Crear valor aleatorio (0-100)",
+    "func": "msg.payload = Math.floor(Math.random() * 100);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 140,
+    "wires": [
+      [
+        "switch1"
+      ]
+    ]
+  },
+  {
+    "id": "switch1",
+    "type": "switch",
+    "z": "a1b2c3d4e5f6",
+    "name": "Solo si est\u00e1 encendido",
+    "property": "encendido",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "true"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 630,
+    "y": 140,
+    "wires": [
+      [
+        "chart1"
+      ]
+    ]
+  },
+  {
+    "id": "chart1",
+    "type": "ui_chart",
+    "z": "a1b2c3d4e5f6",
+    "name": "Gr\u00e1fico de datos",
+    "group": "group1",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "label": "Valores en tiempo real",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "Esperando datos...",
+    "dot": false,
+    "ymin": "0",
+    "ymax": "100",
+    "removeOlder": 1,
+    "removeOlderPoints": "60",
+    "removeOlderUnit": "60",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#0094CE"
+    ],
+    "x": 860,
+    "y": 140,
+    "wires": [
+      [],
+      []
+    ]
+  },
+  {
+    "id": "ui_switch",
+    "type": "ui_switch",
+    "z": "a1b2c3d4e5f6",
+    "name": "Encender / Apagar",
+    "label": "Encendido",
+    "tooltip": "",
+    "group": "group1",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "decouple": "false",
+    "topic": "",
+    "style": "",
+    "onvalue": "true",
+    "onvalueType": "bool",
+    "offvalue": "false",
+    "offvalueType": "bool",
+    "x": 400,
+    "y": 260,
+    "wires": [
+      [
+        "change1"
+      ]
+    ]
+  },
+  {
+    "id": "change1",
+    "type": "change",
+    "z": "a1b2c3d4e5f6",
+    "name": "Guardar estado del switch",
+    "rules": [
+      {
+        "t": "set",
+        "p": "encendido",
+        "pt": "flow",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "x": 660,
+    "y": 260,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "group1",
+    "type": "ui_group",
+    "name": "Panel de Control",
+    "tab": "tab1",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "tab1",
+    "type": "ui_tab",
+    "name": "Dashboard Principal",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false,
+    "order": 1
+  }
+]
