@@ -5,16 +5,19 @@ module.exports = {
     uiPort: process.env.PORT || 1880,
     uiHost: "0.0.0.0",
 
-    // 🔹 Muestra el dashboard en la raíz
-    httpNodeRoot: "/",
-    httpAdminRoot: "/admin",
+    // 🔹 Rutas
+    httpNodeRoot: "/",       // API y nodes HTTP
+    httpAdminRoot: "/admin", // Editor
+    ui: {
+        path: "/ui"          // Dashboard UI
+    },
 
     // 🔹 Autenticación para el editor
     adminAuth: {
         type: "credentials",
         users: [{
             username: "admin",
-            password: bcrypt.hashSync("123456", 8), // cambia "123456" si quieres
+            password: bcrypt.hashSync("123456", 8), 
             permissions: "*"
         }]
     },
