@@ -1,23 +1,23 @@
 const bcrypt = require('bcryptjs');
+const path = require('path');
 
 module.exports = {
-    // 🔹 Usa el puerto que Render asigne
+    // 🔹 Forzar el archivo de flows y la ruta correcta
+    flowFile: "flows.json",
+    userDir: path.resolve(__dirname),
+
+    // 🔹 Configuración del servidor
     uiPort: process.env.PORT || 1880,
     uiHost: "0.0.0.0",
-
-    // 🔹 Directorio del usuario (donde está flows.json)
-    userDir: "./",
-
-    // 🔹 Rutas principales
     httpNodeRoot: "/",
     httpAdminRoot: "/admin",
 
-    // 🔹 Autenticación del editor
+    // 🔹 Autenticación
     adminAuth: {
         type: "credentials",
         users: [{
             username: "admin",
-            password: bcrypt.hashSync("123456", 8), // puedes cambiarla si quieres
+            password: bcrypt.hashSync("123456", 8),
             permissions: "*"
         }]
     },
@@ -28,12 +28,8 @@ module.exports = {
         projects: { enabled: false }
     },
 
-    // 🔹 Logs básicos
+    // 🔹 Logs
     logging: {
-        console: {
-            level: "info",
-            metrics: false,
-            audit: false
-        }
+        console: { level: "info", metrics: false, audit: false }
     }
 };
