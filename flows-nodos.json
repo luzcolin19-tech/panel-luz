@@ -1,0 +1,602 @@
+[
+    {
+        "id": "eaf518f69cb31144",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a1b2c3d4e5f6",
+        "type": "tab",
+        "label": "Dashboard Principal",
+        "disabled": false,
+        "info": "Flujo de ejemplo para Render - Node-RED en español"
+    },
+    {
+        "id": "3d978294ad2837a6",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "abd02b94f15bbd72",
+        "type": "ui_tab",
+        "name": "Practica Hogar",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "65239cd6fff3a8c8",
+        "type": "ui_group",
+        "name": "Encender y apagar ",
+        "tab": "abd02b94f15bbd72",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "tab1",
+        "type": "ui_tab",
+        "name": "Dashboard Principal",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "group1",
+        "type": "ui_group",
+        "name": "Panel de Control",
+        "tab": "tab1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d9c4c4b27e807def",
+        "type": "ui_button",
+        "z": "eaf518f69cb31144",
+        "name": "on/off",
+        "group": "65239cd6fff3a8c8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Encender / Apagar",
+        "tooltip": "Encender o apagar",
+        "color": "white",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "power_settings_new",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "66263fbfda8ffd03"
+            ]
+        ]
+    },
+    {
+        "id": "b8af5537a6769a2e",
+        "type": "function",
+        "z": "eaf518f69cb31144",
+        "name": "function 1",
+        "func": "\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// El código añadido aquí se ejecutará una vez\n// cuando el nodo es iniciado.\nflow.set('bandera', false);",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66263fbfda8ffd03",
+        "type": "switch",
+        "z": "eaf518f69cb31144",
+        "name": "Bandera",
+        "property": "bandera",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "c6bbab20c59193a5"
+            ],
+            [
+                "4c759a3bbb952bbe"
+            ]
+        ]
+    },
+    {
+        "id": "4c759a3bbb952bbe",
+        "type": "change",
+        "z": "eaf518f69cb31144",
+        "name": "False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "bandera",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "e13d864a25d92f76",
+                "54d2279b01a2129c"
+            ]
+        ]
+    },
+    {
+        "id": "c6bbab20c59193a5",
+        "type": "change",
+        "z": "eaf518f69cb31144",
+        "name": "True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "bandera",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "e13d864a25d92f76",
+                "54d2279b01a2129c"
+            ]
+        ]
+    },
+    {
+        "id": "e13d864a25d92f76",
+        "type": "ui_led",
+        "z": "eaf518f69cb31144",
+        "order": 1,
+        "group": "65239cd6fff3a8c8",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "center",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "Led",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b0c66c5633d45bae",
+        "type": "inject",
+        "z": "eaf518f69cb31144",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "d9c4c4b27e807def"
+            ]
+        ]
+    },
+    {
+        "id": "54d2279b01a2129c",
+        "type": "debug",
+        "z": "eaf518f69cb31144",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "inject1",
+        "type": "inject",
+        "z": "a1b2c3d4e5f6",
+        "name": "Generar dato cada segundo",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "function1"
+            ]
+        ]
+    },
+    {
+        "id": "function1",
+        "type": "function",
+        "z": "a1b2c3d4e5f6",
+        "name": "Crear valor aleatorio (0-100)",
+        "func": "msg.payload = Math.floor(Math.random() * 100);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "switch1"
+            ]
+        ]
+    },
+    {
+        "id": "switch1",
+        "type": "switch",
+        "z": "a1b2c3d4e5f6",
+        "name": "Solo si está encendido",
+        "property": "encendido",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "chart1"
+            ]
+        ]
+    },
+    {
+        "id": "chart1",
+        "type": "ui_chart",
+        "z": "a1b2c3d4e5f6",
+        "name": "Gráfico de datos",
+        "group": "65239cd6fff3a8c8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Valores en tiempo real",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "60",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#0094ce",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 860,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_switch",
+        "type": "ui_switch",
+        "z": "a1b2c3d4e5f6",
+        "name": "Encender / Apagar",
+        "label": "Encendido",
+        "tooltip": "",
+        "group": "65239cd6fff3a8c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "change1"
+            ]
+        ]
+    },
+    {
+        "id": "change1",
+        "type": "change",
+        "z": "a1b2c3d4e5f6",
+        "name": "Guardar estado del switch",
+        "rules": [
+            {
+                "t": "set",
+                "p": "encendido",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 660,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "inject_button",
+        "type": "inject",
+        "z": "a1b2c3d4e5f6",
+        "name": "Botón",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "50",
+        "payloadType": "num",
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "ui_gauge"
+            ]
+        ]
+    },
+    {
+        "id": "ui_gauge",
+        "type": "ui_gauge",
+        "z": "a1b2c3d4e5f6",
+        "name": "Medidor",
+        "group": "group1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Mi Medidor",
+        "label": "unidades",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 540,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a96b50284c2cd582",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-ui-led": "0.4.11"
+        }
+    }
+]
