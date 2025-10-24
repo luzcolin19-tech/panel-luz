@@ -5,19 +5,19 @@ module.exports = {
     uiPort: process.env.PORT || 1880,
     uiHost: "0.0.0.0",
 
-    // 🔹 Rutas
-    httpNodeRoot: "/",       // API y nodes HTTP
-    httpAdminRoot: "/admin", // Editor
-    ui: {
-        path: "/ui"          // Dashboard UI
-    },
+    // 🔹 Directorio del usuario (donde está flows.json)
+    userDir: "./",
 
-    // 🔹 Autenticación para el editor
+    // 🔹 Rutas principales
+    httpNodeRoot: "/",
+    httpAdminRoot: "/admin",
+
+    // 🔹 Autenticación del editor
     adminAuth: {
         type: "credentials",
         users: [{
             username: "admin",
-            password: bcrypt.hashSync("123456", 8), 
+            password: bcrypt.hashSync("123456", 8), // puedes cambiarla si quieres
             permissions: "*"
         }]
     },
@@ -37,5 +37,3 @@ module.exports = {
         }
     }
 };
-
-
