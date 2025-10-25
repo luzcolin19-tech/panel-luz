@@ -1,0 +1,260 @@
+[
+    {
+        "id": "eaf518f69cb31144",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d9c4c4b27e807def",
+        "type": "ui_button",
+        "z": "eaf518f69cb31144",
+        "name": "on/off",
+        "group": "65239cd6fff3a8c8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Encender / Apagar",
+        "tooltip": "Encender o apagar",
+        "color": "white",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "power_settings_new",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "66263fbfda8ffd03"
+            ]
+        ]
+    },
+    {
+        "id": "b8af5537a6769a2e",
+        "type": "function",
+        "z": "eaf518f69cb31144",
+        "name": "function 1",
+        "func": "\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// El código añadido aquí se ejecutará una vez\n// cuando el nodo es iniciado.\nflow.set('bandera', false);",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66263fbfda8ffd03",
+        "type": "switch",
+        "z": "eaf518f69cb31144",
+        "name": "Bandera",
+        "property": "bandera",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 360,
+        "y": 240,
+        "wires": [
+            [
+                "c6bbab20c59193a5"
+            ],
+            [
+                "4c759a3bbb952bbe"
+            ]
+        ]
+    },
+    {
+        "id": "4c759a3bbb952bbe",
+        "type": "change",
+        "z": "eaf518f69cb31144",
+        "name": "False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "bandera",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "e13d864a25d92f76",
+                "54d2279b01a2129c"
+            ]
+        ]
+    },
+    {
+        "id": "c6bbab20c59193a5",
+        "type": "change",
+        "z": "eaf518f69cb31144",
+        "name": "True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "bandera",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "e13d864a25d92f76",
+                "54d2279b01a2129c"
+            ]
+        ]
+    },
+    {
+        "id": "e13d864a25d92f76",
+        "type": "ui_led",
+        "z": "eaf518f69cb31144",
+        "order": 1,
+        "group": "65239cd6fff3a8c8",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "center",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "Led",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b0c66c5633d45bae",
+        "type": "inject",
+        "z": "eaf518f69cb31144",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "d9c4c4b27e807def"
+            ]
+        ]
+    },
+    {
+        "id": "54d2279b01a2129c",
+        "type": "debug",
+        "z": "eaf518f69cb31144",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "65239cd6fff3a8c8",
+        "type": "ui_group",
+        "name": "Encender y apagar ",
+        "tab": "abd02b94f15bbd72",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "abd02b94f15bbd72",
+        "type": "ui_tab",
+        "name": "Practica Hogar",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5c6dc741d00ace10",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-ui-led": "0.4.11"
+        }
+    }
+]
