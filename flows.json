@@ -444,7 +444,7 @@
         "type": "ui_chart",
         "z": "a1b2c3d4e5f6",
         "name": "Gráfico de datos",
-        "group": "65239cd6fff3a8c8",
+        "group": "group1",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -490,7 +490,7 @@
         "name": "Encender / Apagar",
         "label": "Encendido",
         "tooltip": "",
-        "group": "65239cd6fff3a8c8",
+        "group": "group1",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -586,7 +586,7 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 540,
+        "x": 780,
         "y": 420,
         "wires": []
     }
