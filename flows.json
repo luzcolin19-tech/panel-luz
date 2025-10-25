@@ -589,14 +589,5 @@
         "x": 540,
         "y": 420,
         "wires": []
-    },
-    {
-        "id": "a5b3e4b4cd3527f3",
-        "type": "global-config",
-        "env": [],
-        "modules": {
-            "node-red-dashboard": "3.6.6",
-            "node-red-contrib-ui-led": "0.4.11"
-        }
     }
 ]
